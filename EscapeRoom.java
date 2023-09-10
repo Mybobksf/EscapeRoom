@@ -73,8 +73,39 @@ public class EscapeRoom
       System.out.print("Where do you want to move? ");
       Scanner scanner = new Scanner(System.in);
       String control = scanner.nextLine();
-      if(control == "right" || control == "r"){
-        game.movePlayer(60,0);
+      switch(control){
+        case "right":
+          case "r":
+            score += game.movePlayer(m,0);
+            break;
+        case "left":
+          case "l":
+            score += game.movePlayer(-m,0);
+            break;
+        case "up":
+          case "u":
+            score += game.movePlayer(0,-m);
+            break;
+        case "down":
+          case "d":
+            score += game.movePlayer(0,m);
+            break;
+        case "jump":
+          case "jr":
+            score += game.movePlayer(2*m,0);
+            break;
+        case "jumpleft":
+          case "jl":
+            score += game.movePlayer(2*-m,0);
+            break;
+        case "jumpup":
+          case "ju":
+            score += game.movePlayer(0,2*-m);
+            break;
+        case "jumpdown":
+          case "jd":
+            score += game.movePlayer(0,2*m);
+            break;
       }
     }
 
