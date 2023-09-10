@@ -57,7 +57,7 @@ public class EscapeRoom
     int px = 0;
     int py = 0; 
     
-    int score = 0;
+    int score = 10;
 
     Scanner in = new Scanner(System.in);
     String[] validCommands = { "right", "left", "up", "down", "r", "l", "u", "d",
@@ -112,17 +112,17 @@ public class EscapeRoom
             break;
         case "quit":
           case "q":
-            score+=game.endGame();
-            System.out.println("score=" + score);
-            System.out.println("steps=" + game.getSteps());
+            play = false;
+            break;
         case "help":
           case "?":
             System.out.println("right or r moves the player right. left of l moves the player left. up or u moves the player up. down or d moves the player down. jump or jr moves the player right 2 squares. jumpleft or jl moves the player left 2 squares. jumpup or ju moves the player up 2 squares. jumpdown or jd moves the player down 2 squares. pickup or p picks up the coin when tou are on a square with a coin. quit or q ends the game. replay goes back to first square.");
-          break;
+            break;
         case "replay":
-          System.out.println(score);
-          score = 0;
+          score += game.replay();
           break;
+        default:
+          System.out.println("Please enter a valid command. Enter help or ? for a guide to the commands");
       }
     }
 
