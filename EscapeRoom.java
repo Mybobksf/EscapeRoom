@@ -106,6 +106,23 @@ public class EscapeRoom
           case "jd":
             score += game.movePlayer(0,2*m);
             break;
+        case "pickup":
+          case "p":
+            score += game.pickupPrize();
+            break;
+        case "quit":
+          case "q":
+            score+=game.endGame();
+            System.out.println("score=" + score);
+            System.out.println("steps=" + game.getSteps());
+        case "help":
+          case "?":
+            System.out.println("right or r moves the player right. left of l moves the player left. up or u moves the player up. down or d moves the player down. jump or jr moves the player right 2 squares. jumpleft or jl moves the player left 2 squares. jumpup or ju moves the player up 2 squares. jumpdown or jd moves the player down 2 squares. pickup or p picks up the coin when tou are on a square with a coin. quit or q ends the game. replay goes back to first square.");
+          break;
+        case "replay":
+          System.out.println(score);
+          score = 0;
+          break;
       }
     }
 
